@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
-import Filter from "./Filter";
+import React, { useState } from "react";
 import Table from "./Table";
 import { LuColumns, LuDownload, LuRefreshCcw, LuSearch } from "react-icons/lu";
+import AddFilter from "./Modal/AddFilter";
 
-function WaitlistTable() {
+function Waitlist() {
   return (
     <section className="flex flex-col h-full">
       <h2 className="text-2xl font-medium p-4">Waitlist</h2>
-      <div className="grid grid-cols-12 gap-4 m-2">
+      <div className="grid grid-cols-12 gap-4 m-2 ml-3">
         <div className="border border-gray-700 col-span-3 rounded-md p-3 text-left items-center font-semibold text-sm">
           All Waitlists
         </div>
@@ -20,7 +20,7 @@ function WaitlistTable() {
         </div>
       </div>
       <div className="flex justify-between my-5">
-        <Filter />
+        <AddFilter />
         <div className="flex mx-6 items-center gap-4">
           <div className="relative m-2">
             <input
@@ -48,4 +48,4 @@ function WaitlistTable() {
   );
 }
 
-export default WaitlistTable;
+export default Waitlist;

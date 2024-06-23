@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   LuArrowLeftRight,
@@ -13,6 +13,24 @@ import {
 function Sidebar({ className }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const [activeItem, setActiveItem] = useState("Orders");
+
+  useEffect(() => {
+    // Collapse the sidebar by default on smaller screens
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setIsExpanded(false);
+      } else {
+        setIsExpanded(true);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
