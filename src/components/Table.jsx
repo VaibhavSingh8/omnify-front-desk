@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import tableData from "../data/table_data.json";
 import Pagination from "./Pagination";
 import { LuCalendar, LuCircleDot, LuUser } from "react-icons/lu";
 import { format } from "date-fns";
+import { useTableContext } from "@/contexts/TableContext";
+useTableContext;
 
 function Table() {
+  const { filteredData } = useTableContext();
   const [selected, setSelected] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -21,7 +23,7 @@ function Table() {
 
   const handleSelectAll = (e) => {
     if (e.target.checked) {
-      setSelected(tableData.map((item) => item.id));
+      setSelected(filteredData.map((item) => item.id));
     } else {
       setSelected([]);
     }
@@ -38,8 +40,8 @@ function Table() {
     return format(date, "eee, dd MMM yyyy h:mm a");
   };
 
-  const totalPages = Math.ceil(tableData.length / itemsPerPage);
-  const currentItems = tableData.slice(
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const currentItems = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -65,7 +67,7 @@ function Table() {
               <th className="px-4 py-3 border-b">
                 <input
                   type="checkbox"
-                  checked={selected.length === tableData.length}
+                  checked={selected.length === filteredData.length}
                   onChange={handleSelectAll}
                 />
               </th>
@@ -142,7 +144,7 @@ function Table() {
         itemsPerPage={itemsPerPage}
         onItemsPerPageChange={handleItemsPerPageChange}
         onPageChange={handlePageChange}
-        totalResults={tableData.length}
+        totalResults={filteredData.length}
       />
     </div>
   );

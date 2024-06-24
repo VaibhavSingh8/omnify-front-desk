@@ -8,7 +8,7 @@ function ModalNav({ onSelect }) {
     onSelect(tab);
   };
   return (
-    <div className="w-2/4 bg-gray-50 h-full p-4">
+    <div className="w-2/4 bg-gray-50 h-full p-4 border">
       <nav>
         <ul>
           <li

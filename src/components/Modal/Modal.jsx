@@ -2,8 +2,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  useRef,
-  useEffect,
   cloneElement,
 } from "react";
 
@@ -55,9 +53,9 @@ function Window({ children, name }) {
 
   return (
     <Overlay>
-      <div className="relative bg-white p-4 rounded-lg w-3/6 h-3/5 overflow-auto">
+      <div className="relative bg-white rounded-lg w-3/6 h-3/5">
         <Button onClick={close}>
-          <HiXMark size={20} />
+          <HiXMark size={18} />
         </Button>
         {children}
       </div>

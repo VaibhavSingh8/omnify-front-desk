@@ -1,9 +1,8 @@
-// components/AddFilter.js
-
 import React from "react";
 import Modal from "./Modal";
 import Filter from "./Filter";
 import { LuFilter } from "react-icons/lu";
+import { FilterProvider } from "@/contexts/FilterContext";
 
 function AddFilter() {
   return (
@@ -14,7 +13,9 @@ function AddFilter() {
         </button>
       </Modal.Open>
       <Modal.Window name="filter">
-        <Filter />
+        <FilterProvider>
+          <Filter />
+        </FilterProvider>
       </Modal.Window>
     </Modal>
   );
