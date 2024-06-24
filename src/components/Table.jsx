@@ -86,10 +86,14 @@ function Table() {
                   <LuCircleDot className="mr-2" /> Status
                 </div>
               </th>
-              <th className="px-4 py-3 border-b"># Email</th>
-              <th className="px-4 py-3 border-b"># Payer Phone</th>
-              <th className="px-4 py-3 border-b"># Services</th>
-              <th className="px-4 py-3 border-b">
+              <th className="px-4 py-3 border-b whitespace-nowrap"># Email</th>
+              <th className="px-4 py-3 border-b whitespace-nowrap">
+                # Payer Phone
+              </th>
+              <th className="px-4 py-3 border-b whitespace-nowrap">
+                # Services
+              </th>
+              <th className="px-4 py-3 border-b whitespace-nowrap">
                 <div className="flex items-center whitespace-nowrap">
                   <LuCalendar className="mr-2" /> Scheduled
                 </div>
